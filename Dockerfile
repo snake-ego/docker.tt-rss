@@ -1,6 +1,6 @@
 FROM php:fpm-alpine3.7
 
-ENV TTRSS_VERSION=17.4
+ENV TTRSS_VERSION=17.12
 
 RUN set -x \
     && apk add --update --no-cache libwebp zlib libjpeg-turbo libpng-dev curl libpq \
