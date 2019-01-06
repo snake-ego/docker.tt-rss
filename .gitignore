@@ -1,0 +1,3 @@
+*.orig
+__tmp__
+docker-compose.yml
