@@ -1,6 +1,6 @@
 FROM php:fpm-alpine
 
-ENV TTRSS_VERSION=18.12
+ENV TTRSS_VERSION=master
 
 RUN set -x \
     && apk add --update --no-cache \
