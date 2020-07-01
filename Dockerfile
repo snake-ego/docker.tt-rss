@@ -21,13 +21,21 @@ ARG build_only="\
     "
 ARG php_modules="\
     pdo \
-    json \
-    curl \
     gd \
-    pdo_pgsql \
     pgsql \
+    pdo_pgsql \
+    mbstring \
+    intl \
+    xml \
+    curl \
+    session \
+    dom \
+    fileinfo \
+    json \
+    pcntl \
     posix \
-    pcntl\ 
+    zip \
+    openssl
     "
 
 RUN set -x \
