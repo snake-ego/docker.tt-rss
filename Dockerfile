@@ -40,8 +40,8 @@ ARG php_modules="\
 
 RUN set -x \
     && apk add --update --no-cache ${packages} \
-    && apk add --update --no-cache --virtual .build-only ${build_only}\
-    && docker-php-ext-install ${php_modules}
+    && apk add --update --no-cache --virtual .build-only ${build_only} \
+    && docker-php-ext-install ${php_modules} \
     && apk del .build-only
 
 ADD http://af.it-test.pw/su-exec/alpine/suexec /usr/local/bin/suexec
