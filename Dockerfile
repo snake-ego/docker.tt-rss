@@ -35,7 +35,7 @@ ARG php_modules="\
     pcntl \
     posix \
     zip \
-    openssl
+    openssl \
     "
 
 RUN set -x \
