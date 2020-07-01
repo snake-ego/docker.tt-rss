@@ -2,15 +2,15 @@ FROM php:fpm-alpine
 
 ENV TTRSS_VERSION=master
 
-RUN set -x \
-    && apk add --update --no-cache \
+ARG packages="\
     libwebp \
     zlib \
     libjpeg-turbo \
     libpng-dev \
     curl \
     libpq \
-    && apk add --update --no-cache --virtual .build-only \
+    "
+ARG build_only="\
     libwebp-dev \
     zlib-dev \
     libjpeg-turbo-dev \
@@ -18,16 +18,22 @@ RUN set -x \
     curl-dev \
     wget \
     postgresql-dev \
-    && docker-php-ext-install \
+    "
+ARG php_modules="\
     pdo \
     json \
-    mbstring \
     curl \
     gd \
     pdo_pgsql \
     pgsql \
     posix \
     pcntl\ 
+    "
+
+RUN set -x \
+    && apk add --update --no-cache ${packages} \
+    && apk add --update --no-cache --virtual .build-only ${build_only}\
+    && docker-php-ext-install ${php_modules}
     && apk del .build-only
 
 ADD http://af.it-test.pw/su-exec/alpine/suexec /usr/local/bin/suexec
